@@ -27,7 +27,7 @@ Our project takes input from User to find a specific item using speech-to-text a
 The app was developed on Xcode 11.2 with Swift 5.1 programming language and it is available for iOS 11.0 and above.
 
 # Demo Links
-- [Youtube link](https://youtu.be/b543EcMP2SA)
+- [Youtube](https://youtu.be/b543EcMP2SA)
 - [Project Source](https://dashboard.hackumass.com/projects/54)
 
 ## Next Step
