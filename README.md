@@ -13,21 +13,22 @@ Our project takes input from User to find a specific item using speech-to-text a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genglin Liu<br/></i>
          
 # Challenges
-There were major challenges:
 - Detecting Object in "real-time"
 - In order to decrease the latency of response from the deep learning model, we had to integrate the neural network with the iOS platform and deploy the model on the mobile phone itself, instead of relying on a cloud service and getting detection results from the cloud.
 - choosing the most-fit Object Detection Algorithm
 - integrating the neural network on an iOS platform instead of on a cloud service
 # <a name="prerequisites"></a>Prerequisites
-## Platform requirements
+
+# Technologies Used
+- Swift
+- Python
+- AI/Machine Learning
+- iOS Frameworks (AVKit, Speech, CoreML)
+
+### Platform requirements
 The program was developed on XCODE 11.2 with Swift 5.1 programming language and it is available for iOS 11.0 and above.
 The following frameworks are used to build the application
-- AVKit
-- AVFoundation
-- Speech
-- CoreML
-- TFLite
 
-# Demo 
+# Demo Links
 - [Youtube link](https://youtu.be/b543EcMP2SA)
 - [Project Source](https://dashboard.hackumass.com/projects/54)
