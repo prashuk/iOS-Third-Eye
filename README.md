@@ -17,7 +17,6 @@ Our project takes input from User to find a specific item using speech-to-text a
 - In order to decrease the latency of response from the deep learning model, we had to integrate the neural network with the iOS platform and deploy the model on the mobile phone itself, instead of relying on a cloud service and getting detection results from the cloud.
 - choosing the most-fit Object Detection Algorithm
 - integrating the neural network on an iOS platform instead of on a cloud service
-# <a name="prerequisites"></a>Prerequisites
 
 # Technologies Used
 - Swift
@@ -32,3 +31,6 @@ The following frameworks are used to build the application
 # Demo Links
 - [Youtube link](https://youtu.be/b543EcMP2SA)
 - [Project Source](https://dashboard.hackumass.com/projects/54)
+
+## Next Step
+Extending our app using Drone which can help to find items without any human support and can freely rotate in 360 angles. It would be interesting to use a combination of MobileNet and SSD to detect an object in real-time video streaming.
