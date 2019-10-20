@@ -1,4 +1,4 @@
-# HackUMass_ThirdEye
+# Third Eye
 
 An iOS app for empowering visually impaired to help finding their belongings and overcome day-to-day struggles through Mobile camera as "Third Eye" using Object Detection Algorithm and speech recognition.
 
