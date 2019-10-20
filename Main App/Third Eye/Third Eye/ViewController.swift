@@ -29,6 +29,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
+    
+    var player: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         speechSynthesizer.speak(speechUtterance)
         
         // Step 2 : get word from user
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.recordAndRecognizeSpeech()
         }
     }
@@ -94,7 +96,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             }
         })
         
-        print("x")
+        print("Speak")
     }
     
     func cameraSetup() {
@@ -127,15 +129,28 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
             guard let firstObservation = results.first else { return }
                         
-            if (firstObservation.identifier.lowercased().contains(self.searchedWord) && firstObservation.confidence * 100 > 80 ) {
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            if (firstObservation.identifier.lowercased().contains(self.searchedWord)) {
+                
+                if (firstObservation.confidence * 100 > 80 ) {
+//                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    let generator = UIImpactFeedbackGenerator(style: .heavy)
+                    generator.impactOccurred()
+                    let systemSoundID: SystemSoundID = 1016
+                    AudioServicesPlaySystemSound (systemSoundID)
+                }
+                if (firstObservation.confidence * 100 > 50 ) {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                }
+                if (firstObservation.confidence * 100 > 10 ) {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
+                }
             }
-            
             DispatchQueue.main.async {
-                self.identifierLabel.text = "\(firstObservation.identifier) \(firstObservation.confidence * 100)"
+                self.identifierLabel.text = "\(firstObservation.identifier)"
             }
         }
-        
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
